@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Classifier</h1>
+        <p>Enter your details below to predict your BMI class.</p>
+        <form action="/" method="post" class="bmi-form">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height (m)</label>
+                <input type="number" step="0.01" id="height" name="height" placeholder="Enter your height in meters" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" step="0.1" id="weight" name="weight" placeholder="Enter your weight in kilograms" required>
+            </div>
+            <button type="submit" class="btn">Predict BMI Class</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>Your BMI Class is: <span>{{ result }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
